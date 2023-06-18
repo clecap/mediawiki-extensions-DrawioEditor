@@ -49,7 +49,7 @@ function DrawioEditor( id, filename, type, updateHeight, updateWidth,
 
 	var localAttr = this.baseUrl !== 'https://embed.diagrams.net' ? "&local=1" : "";
 	this.iframe = $('<iframe>', {
-		src: this.baseUrl + '/?embed=1&proto=json&spin=1&analytics=0&picker=0&lang=' + this.language + localAttr,
+		src: this.baseUrl + '?embed=1&proto=json&spin=1&analytics=0&picker=0&lang=' + this.language + localAttr,
 		id: 'drawio-iframe-' + id,
 		class: 'DrawioEditorIframe'
 	});
@@ -215,6 +215,8 @@ DrawioEditor.prototype.uploadToWiki = function(blob) {
 			that.hideSpinner();
 			if( retStatus == "exists" ){
 				that.updateImage(data.upload.imageinfo);
+      } else if( retStatus == "http" ) { // we may also fail due to an error in MediaWiki - and this should not signaled more clearly
+        that.showDialog ("Save failed due to a problem with Mediawiki", "Information received is: " + JSON.stringify(data));
 			} else {
 				if ( data.error ) {
 					that.showDialog('Save failed',
@@ -224,7 +226,6 @@ DrawioEditor.prototype.uploadToWiki = function(blob) {
 				}
 			}
 		});
-
 }
 
 DrawioEditor.prototype.save = function(datauri) {

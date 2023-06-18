@@ -51,6 +51,8 @@ Psr\Http\Message\StreamInterface in <b>/var/www/html/wiki-dir/includes/libs/Para
 * Moreover PHP requires path access to the proper file describing `StreamInterface`, so we must add 
 `use Psr\Http\Message\StreamInterface;`to the header in this file.
 
+The correct file is supplied here as PATCH-UploadedFile.php (for MediaWiki 1.40).
+
 ## 5. Further Bug:
 
 We need to do a reload after we return from the editor to the Wikipage.

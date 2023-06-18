@@ -2,6 +2,10 @@
 
 This is a MediaWiki extension that integrates the draw.io flow chart editor and allows inline editing of charts.
 
+# Patched Version
+
+This is a patched version. The patches are described in README-patch.md.
+
 # Warnings
 **Please read these warnings carefully before use**:
 - The default editor functionality is loaded from draw.io (for configuration options [see below](#Configuration)). This code only provides integration.

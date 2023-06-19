@@ -53,6 +53,23 @@ Psr\Http\Message\StreamInterface in <b>/var/www/html/wiki-dir/includes/libs/Para
 
 The correct file is supplied here as PATCH-UploadedFile.php (for MediaWiki 1.40).
 
+See also: https://www.mediawiki.org/w/index.php?title=Topic:Xkagz9y10nf2dq26&topic_showPostId=xkajubqfr0vfw821#flow-post-xkajubqfr0vfw821
+
 ## 5. Further Bug:
 
 We need to do a reload after we return from the editor to the Wikipage.
+
+This has been fixed by an add on to `DrawioEditor.prototype.exit` in ext.drawioeditor.js
+
+## 6. Extension.json
+
+* Changed `config.DrawioEditorImageType` to "svg"
+* Changed `DrawioEditorBackendUrl.value`to "" to prevent any use outside of the configuration which is done in DanteSettings.php
+
+
+
+
+
+# Differences in Usage
+
+<drawio filenae="some-name" /> also works 

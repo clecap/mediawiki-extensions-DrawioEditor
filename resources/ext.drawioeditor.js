@@ -261,6 +261,7 @@ DrawioEditor.prototype.exit = function() {
 	editor = null;
 	$('#warningmsg').hide();
 	this.destroy();
+  location.reload();     // do an automagic reload 
 }
 
 DrawioEditor.prototype.saveCallback = function() {

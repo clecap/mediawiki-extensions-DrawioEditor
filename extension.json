@@ -104,10 +104,10 @@
 	},
 	"config": {
 		"DrawioEditorImageType": {
-			"value": "png"
+			"value": "svg"
 		},
 		"DrawioEditorBackendUrl": {
-			"value": "https://embed.diagrams.net"
+			"value": ""
 		}
 	},
 	"manifest_version": 2

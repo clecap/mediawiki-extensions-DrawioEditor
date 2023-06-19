@@ -67,7 +67,11 @@ This has been fixed by an add on to `DrawioEditor.prototype.exit` in ext.drawioe
 * Changed `DrawioEditorBackendUrl.value`to "" to prevent any use outside of the configuration which is done in DanteSettings.php
 
 
+## 7. Type bug
 
+In file `src/Hook/ApprovedRevsSetStableFile.php` we remove the type specification ùser`at variable `$user`
+in `public function onDrawioGetFile( File &$file, &$latestIsStable, User $user, bool &$isNotApproved, &$displayFile )`
+as this produces errors in `danteEndpoint.php` previews.
 
 
 # Differences in Usage

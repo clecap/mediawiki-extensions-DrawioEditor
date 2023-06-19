@@ -26,7 +26,7 @@ class ApprovedRevsSetStableFile implements DrawioGetFileHook {
 	/**
 	 * @inheritDoc
 	 */
-	public function onDrawioGetFile( File &$file, &$latestIsStable, User $user, bool &$isNotApproved,
+	public function onDrawioGetFile( File &$file, &$latestIsStable, $user, bool &$isNotApproved,
 	&$displayFile ) {
 		if ( !class_exists( 'ApprovedRevs' ) ) {
 			return true;

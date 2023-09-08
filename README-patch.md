@@ -73,6 +73,22 @@ In file `src/Hook/ApprovedRevsSetStableFile.php` we remove the type specificatio
 in `public function onDrawioGetFile( File &$file, &$latestIsStable, User $user, bool &$isNotApproved, &$displayFile )`
 as this produces errors in `danteEndpoint.php` previews.
 
+## 8. Patch to MediaWiki core file includes/upload/UploadBase.php
+
+drawio uses namespace "http://www.w3.org/1999/xhtml" in text portions, MediaWiki in the current version (1.39) disallows upload 
+of SVG files using this namespace, as xhtml can be used to embed iframes, which can be used for XSS attacks by untrusted users.
+As a result, drawio SVG uploads get rejected by MediaWiki.
+
+The issue has been described in https://github.com/mgeb/mediawiki-drawio-editor/issues/1
+
+A request for modification of MediaWiki has been discussed in https://www.mediawiki.org/wiki/Requests_for_comment/SVG_Upload_should_(optionally)_allow_the_xhtml_namespace and
+in https://www.openwall.com/lists/oss-security/2014/03/01/2 
+
+The request has been rejected thus far here https://phabricator.wikimedia.org/T62771 for at least MediaWiki mainstream.
+
+To solve the problem, we patch file includes/upload/Uploadbase.php by adding 'http://www.w3.org/1999/xhtml' in into static variable $validNamespaces.
+
+The file PATCH-UploadBase.php must be copied into the respective place.
 
 # Differences in Usage
 
